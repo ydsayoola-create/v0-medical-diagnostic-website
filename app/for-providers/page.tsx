@@ -1,15 +1,11 @@
-'use client'
+"use client"
 
-import { CheckCircle2, Users, Zap, TrendingUp, Award, Mail } from 'lucide-react'
+import { CheckCircle2, Users, Zap, TrendingUp, Award } from 'lucide-react'
 import Link from 'next/link'
+import { useFormStore } from '@/hooks/use-forms'
 
 export default function ForProvidersPage() {
-  const scrollToBooking = () => {
-    const ctaSection = document.getElementById('cta-section')
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const { setShowAppointmentForm, setShowContactForm } = useFormStore()
 
   const whyPartner = [
     {
@@ -194,14 +190,8 @@ export default function ForProvidersPage() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-body font-semibold hover:bg-primary/90 transition-colors">
-              Register Your Practice
-            </button>
-            <button className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-body font-semibold hover:bg-primary/5 transition-colors">
-              Download Test Catalog
-            </button>
             <button
-              onClick={scrollToBooking}
+              onClick={() => setShowContactForm(true)}
               className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-body font-semibold hover:bg-primary/5 transition-colors"
             >
               Contact Provider Relations
@@ -220,7 +210,7 @@ export default function ForProvidersPage() {
             Join hundreds of healthcare providers who trust Dynasty Global Medical for their diagnostic needs. Let's work together to deliver better patient outcomes.
           </p>
           <button
-            onClick={scrollToBooking}
+            onClick={() => setShowContactForm(true)}
             className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-body font-semibold hover:bg-primary/90 transition-colors"
           >
             Get Started Today

@@ -1,9 +1,37 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section 
+      ref={sectionRef}
+      id="about" 
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+          <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <div className="space-y-4">
               <p className="text-accent font-body text-sm font-semibold uppercase tracking-wider">
                 About Dynasty Global Medical
@@ -34,7 +62,11 @@ export default function About() {
                   "Rapid turnaround on results",
                   "Competitive pricing without compromising quality",
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
+                  <li 
+                    key={i} 
+                    className="flex gap-3 items-start transition-all duration-700"
+                    style={{ animationDelay: `${i * 100}ms` }}
+                  >
                     <span className="text-accent text-lg flex-shrink-0">✓</span>
                     <span className="font-body text-foreground">{item}</span>
                   </li>
@@ -43,12 +75,16 @@ export default function About() {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <img src="/professional-medical-team-in-diagnostic-laboratory.jpg" alt="Medical Team" className="w-full h-auto rounded-lg shadow-lg" />
+          <div className={`space-y-4 transition-all duration-1000 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
+            <img 
+              src="/professional-medical-team-in-diagnostic-laboratory.jpg" 
+              alt="Medical Team" 
+              className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" 
+            />
             <img
               src="/advanced-medical-diagnostic-equipment-and-technolo.jpg"
               alt="Diagnostic Equipment"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             />
           </div>
         </div>

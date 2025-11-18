@@ -1,15 +1,11 @@
-'use client'
+"use client"
 
 import { CheckCircle2, MapPin, Phone, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { useFormStore } from '@/hooks/use-forms'
 
 export default function ForPatientsPage() {
-  const scrollToBooking = () => {
-    const ctaSection = document.getElementById('cta-section')
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const { setShowAppointmentForm } = useFormStore()
 
   const steps = [
     {
@@ -167,7 +163,7 @@ export default function ForPatientsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button
-              onClick={scrollToBooking}
+              onClick={() => setShowAppointmentForm(true)}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-body font-semibold hover:bg-primary/90 transition-colors"
             >
               Book Your Test Now

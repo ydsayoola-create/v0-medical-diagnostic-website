@@ -1,4 +1,28 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
 export default function Technology() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   const services = [
     {
       name: "Advanced Imaging & Radiology",
@@ -33,9 +57,13 @@ export default function Technology() {
   ]
 
   return (
-    <section id="services-showcase" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section 
+      ref={sectionRef}
+      id="services-showcase" 
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-background"
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
           <p className="text-accent font-body text-sm font-semibold uppercase tracking-wider">Our Services</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground">
             Comprehensive Diagnostic Solutions
@@ -50,7 +78,10 @@ export default function Technology() {
             <a
               key={index}
               href={service.href}
-              className="border border-border bg-card rounded-lg p-6 hover:shadow-lg hover:border-primary transition-all duration-300 group cursor-pointer"
+              className={`border border-border bg-card rounded-lg p-6 hover:shadow-lg hover:border-primary transition-all duration-300 group cursor-pointer ${
+                isVisible ? 'animate-slide-in-up' : 'opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 50}ms` }}
             >
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                 <span className="text-accent text-xl">→</span>
