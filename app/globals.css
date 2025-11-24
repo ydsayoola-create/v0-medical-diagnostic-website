@@ -133,8 +133,7 @@
   h6 {
     @apply font-display;
   }
-  
-  /* Enhanced smooth scrolling for all sections */
+
   html {
     scroll-behavior: smooth;
   }
@@ -144,60 +143,109 @@
   text-wrap: balance;
 }
 
-/* Enhanced hero animations - subtle looping background with smooth transitions */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* Added comprehensive animation system with molecular particles, parallax, and micro-interactions */
 
-@keyframes floatBlob {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(20px, -30px);
-  }
-  50% {
-    transform: translate(-10px, -50px);
-  }
-  75% {
-    transform: translate(-30px, -20px);
-  }
-}
-
-@keyframes floatBlobReverse {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-25px, 30px);
-  }
-  50% {
-    transform: translate(15px, 50px);
-  }
-  75% {
-    transform: translate(35px, 15px);
-  }
-}
-
-@keyframes shimmer {
-  0%, 100% {
-    opacity: 0.4;
-    filter: blur(40px);
-  }
-  50% {
+/* Molecular Network Background Animation */
+@keyframes particleFloat1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
     opacity: 0.6;
-    filter: blur(60px);
+  }
+  25% {
+    transform: translate(40px, -50px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-20px, -80px) scale(0.95);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(-50px, -30px) scale(1.05);
+    opacity: 0.7;
   }
 }
 
-@keyframes slideInUp {
+@keyframes particleFloat2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(-35px, 45px) scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(25px, 70px) scale(1.1);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(55px, 20px) scale(0.98);
+    opacity: 0.65;
+  }
+}
+
+@keyframes particleFloat3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(60px, -40px) rotate(120deg) scale(1.08);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-50px, 50px) rotate(240deg) scale(0.92);
+    opacity: 0.5;
+  }
+}
+
+@keyframes connectionLine {
+  0%,
+  100% {
+    opacity: 0.2;
+    stroke-width: 1;
+  }
+  50% {
+    opacity: 0.5;
+    stroke-width: 1.5;
+  }
+}
+
+@keyframes moleculeRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Parallax Scroll Effect */
+@keyframes parallaxShift {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(30px);
+  }
+}
+
+/* Gradient Animation on Text */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Fade-up Animation with Stagger */
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -208,6 +256,19 @@
   }
 }
 
+/* Scale-in Animation for Cards */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide-in Animations */
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -230,50 +291,281 @@
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 1s ease-out;
+/* Counter Animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.animate-float-blob {
-  animation: floatBlob 20s ease-in-out infinite;
+/* Button Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
-.animate-float-blob-reverse {
-  animation: floatBlobReverse 20s ease-in-out infinite;
+/* Pulse Animation for Primary CTA */
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(27, 40, 69, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(27, 40, 69, 0);
+  }
 }
 
-.animate-shimmer {
-  animation: shimmer 8s ease-in-out infinite;
+/* Ken Burns Effect for Images */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  100% {
+    transform: scale(1.05) translateX(5px) translateY(5px);
+  }
 }
 
-.animate-slide-in-up {
-  animation: slideInUp 0.8s ease-out;
+/* Navigation Hide/Show on Scroll */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Icon Bounce Effect */
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-10px);
+  }
+}
+
+/* Loading Animation - Medical Cross Forming */
+@keyframes crossForm {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Cursor Trail Glow */
+@keyframes cursorGlow {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Subtle Noise Background */
+@keyframes noise {
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.05;
+  }
+}
+
+/* Apply Animations with Classes */
+.animate-particle-float-1 {
+  animation: particleFloat1 30s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-particle-float-2 {
+  animation: particleFloat2 35s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-particle-float-3 {
+  animation: particleFloat3 40s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-molecule-rotate {
+  animation: moleculeRotate 60s linear infinite;
+  will-change: transform;
+}
+
+.animate-parallax {
+  animation: parallaxShift 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-gradient-shift {
+  animation: gradientShift 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.8s ease-out;
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.8s ease-out;
+  animation: slideInRight 0.8s ease-out forwards;
 }
 
-/* Staggered animation delays for multiple elements */
-.animate-slide-in-up-1 {
-  animation: slideInUp 0.8s ease-out 0.1s both;
+.animate-ken-burns {
+  animation: kenBurns 8s ease-out forwards;
 }
 
-.animate-slide-in-up-2 {
-  animation: slideInUp 0.8s ease-out 0.2s both;
+.animate-icon-bounce {
+  animation: iconBounce 0.8s ease-out;
 }
 
-.animate-slide-in-up-3 {
-  animation: slideInUp 0.8s ease-out 0.3s both;
+/* Stagger delays for sequential animations */
+.stagger-1 {
+  animation-delay: 0.15s;
+}
+.stagger-2 {
+  animation-delay: 0.3s;
+}
+.stagger-3 {
+  animation-delay: 0.45s;
+}
+.stagger-4 {
+  animation-delay: 0.6s;
+}
+.stagger-5 {
+  animation-delay: 0.75s;
+}
+.stagger-6 {
+  animation-delay: 0.9s;
 }
 
-/* Smooth section transitions */
-@media (prefers-reduced-motion: no-preference) {
-  section {
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Button Hover Effects */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s ease-out;
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Card Hover - Lift Animation */
+.card-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
+
+/* Mobile Optimizations - Lighter animations on smaller screens */
+@media (max-width: 768px) {
+  .animate-particle-float-1,
+  .animate-particle-float-2,
+  .animate-particle-float-3 {
+    animation-duration: 40s, 45s, 50s;
+  }
+
+  .animate-ken-burns {
+    animation: kenBurns 5s ease-out forwards;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .btn-pulse {
+    animation: none;
+  }
+}
+
+/* GPU Acceleration for smooth 60fps */
+.gpu-accelerate {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Subtle Noise Texture */
+.noise-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+  animation: noise 3s ease-in-out infinite;
+  z-index: 1;
 }

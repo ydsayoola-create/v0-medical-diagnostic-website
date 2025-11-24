@@ -77,12 +77,12 @@ export default function About() {
 
           <div className={`space-y-4 transition-all duration-1000 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <img 
-              src="/professional-medical-team-in-diagnostic-laboratory.jpg" 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ezebunwo-omachi-aWDmVbKd3w0-unsplash-KNaBw6DI8t8c66EA7tdtax4YjP1noe.jpg" 
               alt="Medical Team" 
               className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" 
             />
             <img
-              src="/advanced-medical-diagnostic-equipment-and-technolo.jpg"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/accuray-QTP8UKW_PgI-unsplash-vkHAt6eYXgPiaSvHR04bOKZK2sfBBD.jpg"
               alt="Diagnostic Equipment"
               className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             />
