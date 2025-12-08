@@ -56,15 +56,9 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              
               <li>
-                <Link href="#" className="hover:text-background transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-background transition-colors">
-                  Blog
-                </Link>
+                
               </li>
             </ul>
           </div>
